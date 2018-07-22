@@ -31,7 +31,7 @@ int main()
 	int retc = connect(cfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 	if (retc == -1)
 	{
-		perror("socket error!");
+		perror("connect error!");
 		exit(1);
 	}
 
