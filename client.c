@@ -23,8 +23,17 @@ int main()
 	
 	// make a socket
 	int cfd = socket(AF_INET, SOCK_STREAM, 0);
-
-	connect(cfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
+	if (cfd == -1)
+	{
+		perror("socket error!");
+		exit(1);
+	}
+	int retc = connect(cfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
+	if (retc == -1)
+	{
+		perror("socket error!");
+		exit(1);
+	}
 
 	// to do
 
